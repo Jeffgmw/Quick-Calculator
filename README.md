@@ -1,1 +1,1 @@
-# Simple-Calculator-Application
+# Quick-Calculator
