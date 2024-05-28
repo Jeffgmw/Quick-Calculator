@@ -25,6 +25,7 @@ class MainActivityViewModel : ViewModel() {
         mutableNumber.value = appendedString
     }
 
+
     fun deleteLastCharacter() {
         if (appendedString.isNotEmpty()) {
             appendedString = appendedString.dropLast(1)

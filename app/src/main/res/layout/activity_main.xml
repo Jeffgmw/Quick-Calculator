@@ -174,5 +174,7 @@
                 style="@style/EqualButtonStyle"
                 android:text="="/>
         </LinearLayout>
+
     </LinearLayout>
+
 </LinearLayout>

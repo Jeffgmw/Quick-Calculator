@@ -122,4 +122,5 @@ class MainActivity : AppCompatActivity() {
     private fun evaluateExpression(string: String) {
         viewModel.evaluateExpression(string, false)
     }
+
 }
