@@ -2,7 +2,7 @@ package com.example.quickcalculator.constants
 
 class Constant {
     object Value {
-        //ISI STRING SAMA PERSIS DENGAN SLUG
+
         const val ONE = "1"
         const val TWO = "2"
         const val THREE = "3"
@@ -16,7 +16,7 @@ class Constant {
     }
 
     object Expression {
-        //ISI STRING SAMA PERSIS DENGAN SLUG
+
         const val ADD = "+"
         const val SUBSTRACT = "-"
         const val MULTIPLE = "*"
