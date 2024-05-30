@@ -1,6 +1,6 @@
-package com.example.quickcalculator.constants
+package com.example.quickcalculator.utils
 
-class Constant {
+class Constants {
     object Value {
 
         const val ONE = "1"

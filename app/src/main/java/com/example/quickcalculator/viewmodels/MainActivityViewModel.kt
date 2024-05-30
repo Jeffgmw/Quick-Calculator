@@ -44,4 +44,5 @@ class MainActivityViewModel : ViewModel() {
             Number(result.toString())
         }
     }
+
 }

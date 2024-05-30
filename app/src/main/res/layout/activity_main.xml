@@ -165,7 +165,7 @@
                 android:text="."/>
 
             <TextView
-                android:id="@+id/tvBack"
+                android:id="@+id/tvDel"
                 style="@style/NumberButtonStyle"
                 android:text="DEL"/>
 
