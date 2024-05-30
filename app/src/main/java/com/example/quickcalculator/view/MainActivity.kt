@@ -87,6 +87,10 @@ class MainActivity : AppCompatActivity() {
                 evaluateExpression(Constants.Expression.PERCENTAGE)
             }
 
+//            tvBrackets.setOnClickListener {
+//                evaluateExpression(Constants.Expression.BRACKETS)
+//            }
+
             tvClear.setOnClickListener {
                 viewModel.evaluateExpression("", true)
                 tvExpression.text = ""

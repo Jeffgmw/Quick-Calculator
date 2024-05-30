@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.quickcalculator.model.Number
 import net.objecthunter.exp4j.ExpressionBuilder
+import java.util.regex.Pattern
 
 class MainActivityViewModel : ViewModel() {
 
@@ -16,11 +17,29 @@ class MainActivityViewModel : ViewModel() {
 
     private var appendedString: String = ""
 
+    private var isPendingClosingParenthesis = false
+
     fun evaluateExpression(string: String, clear: Boolean) {
         if (clear) {
             appendedString = ""
+            isPendingClosingParenthesis = false
         } else {
-            appendedString += string
+            appendedString += if (string == "(") {
+                if (isPendingClosingParenthesis) {
+                    isPendingClosingParenthesis = false
+                    ")$string"
+                } else {
+                    isPendingClosingParenthesis = true
+                    string
+                }
+            } else {
+                if (isPendingClosingParenthesis) {
+                    isPendingClosingParenthesis = false
+                    ")$string"
+                } else {
+                    string
+                }
+            }
         }
         mutableNumber.value = appendedString
     }
@@ -47,12 +66,27 @@ class MainActivityViewModel : ViewModel() {
     }
 
     // Sake of percentage calculation
+//    private fun preprocessExpression(expression: String): String {
+//        val regex = Regex("(\\d+(\\.\\d+)?)%")
+//        return regex.replace(expression) {
+//            val value = it.groupValues[1].toDouble()
+//            "(${value / 100})"
+//        }
+//    }
+
     private fun preprocessExpression(expression: String): String {
-        val regex = Regex("(\\d+(\\.\\d+)?)%")
-        return regex.replace(expression) {
-            val value = it.groupValues[1].toDouble()
-            "(${value / 100})"
+        // Regex to find patterns like "number%" and convert them to "(number/100)"
+        val pattern = Pattern.compile("(\\d+(\\.\\d+)?)%")
+        val matcher = pattern.matcher(expression)
+        val buffer = StringBuffer()
+
+        while (matcher.find()) {
+            val number = matcher.group(1)
+            matcher.appendReplacement(buffer, "(${number.toDouble() / 100})")
         }
+        matcher.appendTail(buffer)
+
+        return buffer.toString()
     }
 
 }

@@ -55,8 +55,13 @@
 
             <TextView
                 android:id="@+id/tvClear"
-                style="@style/ActionButtonStyle"
+                style="@style/ActionButtonStyle2"
                 android:text="CLEAR"/>
+
+            <TextView
+                android:id="@+id/tvBrackets"
+                style="@style/ActionButtonStyle"
+                android:text="()"/>
 
             <TextView
                 android:id="@+id/tvPercent"
@@ -93,7 +98,7 @@
 
             <TextView
                 android:id="@+id/tvMul"
-                style="@style/NumberActionButton2"
+                style="@style/ActionButtonStyle"
                 android:text="×"/>
         </LinearLayout>
 
@@ -121,7 +126,7 @@
 
             <TextView
                 android:id="@+id/tvMinus"
-                style="@style/NumberActionButton2"
+                style="@style/ActionButtonStyle"
                 android:text="-"/>
         </LinearLayout>
 
@@ -149,7 +154,7 @@
 
             <TextView
                 android:id="@+id/tvPlus"
-                style="@style/NumberActionButton2"
+                style="@style/ActionButtonStyle"
                 android:text="+"/>
         </LinearLayout>
 
@@ -171,12 +176,12 @@
 
             <TextView
                 android:id="@+id/tvDel"
-                style="@style/NumberButtonStyle"
+                style="@style/ActionButtonStyle2"
                 android:text="DEL"/>
 
             <TextView
                 android:id="@+id/tvEquals"
-                style="@style/EqualButtonStyle"
+                style="@style/ActionButtonStyle"
                 android:text="="/>
         </LinearLayout>
 

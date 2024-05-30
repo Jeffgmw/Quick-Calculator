@@ -25,6 +25,7 @@ class Constants {
         const val DIVIDE = "/"
         const val DOT = "."
         const val PERCENTAGE = "%"
+        const val BRACKETS = "()"
     }
 
 }

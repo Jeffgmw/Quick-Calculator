@@ -13,14 +13,14 @@
 
     </style>
 
-    <!-- Style for action buttons such as "CLEAR" and "/". -->
+    <!-- Style for operation buttons such as "*", "-", "+". -->
     <style name="ActionButtonStyle">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/button_background</item>
-        <item name="android:textSize">21sp</item>
-        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">#30970E</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_margin">2dp</item>
     </style>
@@ -31,32 +31,20 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/button_background</item>
-        <item name="android:textSize">21sp</item>
+        <item name="android:textSize">25sp</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_margin">2dp</item>
     </style>
 
-    <!-- Style for the equals button "=". -->
-    <style name="EqualButtonStyle">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:background">@drawable/button_background</item>
-        <item name="android:textSize">30sp</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_margin">2dp</item>
-    </style>
-
-    <!-- Style for operation buttons such as "*", "-", "+". -->
-    <style name="NumberActionButton2">
+    <!-- Style for action buttons such as "CLEAR" and "DEL". -->
+    <style name="ActionButtonStyle2">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/button_background</item>
         <item name="android:textSize">21sp</item>
-        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColor">#880C0C</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_margin">2dp</item>
     </style>
