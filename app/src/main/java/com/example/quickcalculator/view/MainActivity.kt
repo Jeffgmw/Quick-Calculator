@@ -94,11 +94,16 @@ class MainActivity : AppCompatActivity() {
                 viewModel.calculateEquals(Number(text))
             }
 
-            tvBack.setOnClickListener {
+            tvDel.setOnClickListener {
                 viewModel.deleteLastCharacter()
                 tvResult.text = ""
             }
         }
+    }
+
+    //Function to calculate the expressions using expression builder library
+    private fun evaluateExpression(string: String) {
+        viewModel.evaluateExpression(string, false)
     }
 
     private fun initializeViewModel() {
@@ -116,11 +121,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.resultLiveData.observe(this) { result ->
             binding.tvResult.text = result.result
         }
-    }
-
-    //Function to calculate the expressions using expression builder library
-    private fun evaluateExpression(string: String) {
-        viewModel.evaluateExpression(string, false)
     }
 
 }
