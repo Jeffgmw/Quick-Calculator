@@ -59,6 +59,11 @@
                 android:text="CLEAR"/>
 
             <TextView
+                android:id="@+id/tvPercent"
+                style="@style/ActionButtonStyle"
+                android:text="%"/>
+
+            <TextView
                 android:id="@+id/tvDivide"
                 style="@style/ActionButtonStyle"
                 android:text="÷"/>

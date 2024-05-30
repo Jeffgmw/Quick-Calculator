@@ -34,14 +34,24 @@ class MainActivityViewModel : ViewModel() {
     }
 
     fun calculateEquals(number: Number) {
-        val expression = ExpressionBuilder(number.result).build()
-        val result = expression.evaluate()
+        val expression = preprocessExpression(number.result)
+        val exp = ExpressionBuilder(expression).build()
+        val result = exp.evaluate()
         val longResult = result.toLong()
 
         mutableResult.value = if (result == longResult.toDouble()) {
             Number(longResult.toString())
         } else {
             Number(result.toString())
+        }
+    }
+
+    // Sake of percentage calculation
+    private fun preprocessExpression(expression: String): String {
+        val regex = Regex("(\\d+(\\.\\d+)?)%")
+        return regex.replace(expression) {
+            val value = it.groupValues[1].toDouble()
+            "(${value / 100})"
         }
     }
 

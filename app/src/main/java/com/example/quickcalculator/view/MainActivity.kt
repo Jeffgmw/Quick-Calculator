@@ -83,6 +83,10 @@ class MainActivity : AppCompatActivity() {
                 evaluateExpression(Constants.Expression.DOT)
             }
 
+            tvPercent.setOnClickListener {
+                evaluateExpression(Constants.Expression.PERCENTAGE)
+            }
+
             tvClear.setOnClickListener {
                 viewModel.evaluateExpression("", true)
                 tvExpression.text = ""
@@ -98,6 +102,7 @@ class MainActivity : AppCompatActivity() {
                 viewModel.deleteLastCharacter()
                 tvResult.text = ""
             }
+
         }
     }
 

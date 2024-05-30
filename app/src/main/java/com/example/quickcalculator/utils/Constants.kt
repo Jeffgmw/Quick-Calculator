@@ -1,5 +1,7 @@
 package com.example.quickcalculator.utils
 
+import android.health.connect.datatypes.units.Percentage
+
 class Constants {
     object Value {
 
@@ -22,6 +24,7 @@ class Constants {
         const val MULTIPLE = "*"
         const val DIVIDE = "/"
         const val DOT = "."
+        const val PERCENTAGE = "%"
     }
 
 }
