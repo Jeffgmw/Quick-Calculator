@@ -22,68 +22,68 @@ class MainActivity : AppCompatActivity() {
         observableLiveData()
 
         with(binding){
-            tvOne.setOnClickListener {
+            btOne.setOnClickListener {
                 evaluateExpression(Constants.Value.ONE)
             }
 
-            tvTwo.setOnClickListener {
+            btTwo.setOnClickListener {
                 evaluateExpression(Constants.Value.TWO)
             }
 
-            tvThree.setOnClickListener {
+            btThree.setOnClickListener {
                 evaluateExpression(Constants.Value.THREE)
             }
-            tvFour.setOnClickListener {
+            btFour.setOnClickListener {
                 evaluateExpression(Constants.Value.FOUR)
             }
 
-            tvFive.setOnClickListener {
+            btFive.setOnClickListener {
                 evaluateExpression(Constants.Value.FIVE)
             }
 
-            tvSix.setOnClickListener {
+            btSix.setOnClickListener {
                 evaluateExpression(Constants.Value.SIX)
             }
 
-            tvSeven.setOnClickListener {
+            btSeven.setOnClickListener {
                 evaluateExpression(Constants.Value.SEVEN)
             }
 
-            tvEight.setOnClickListener {
+            btEight.setOnClickListener {
                 evaluateExpression(Constants.Value.EIGHT)
             }
 
-            tvNine.setOnClickListener {
+            btNine.setOnClickListener {
                 evaluateExpression(Constants.Value.NINE)
             }
 
-            tvZero.setOnClickListener {
+            btZero.setOnClickListener {
                 evaluateExpression(Constants.Value.ZERO)
             }
 
             /*Operators*/
 
-            tvPlus.setOnClickListener {
+            btPlus.setOnClickListener {
                 evaluateExpression(Constants.Expression.ADD)
             }
 
-            tvMinus.setOnClickListener {
+            btMinus.setOnClickListener {
                 evaluateExpression(Constants.Expression.SUBSTRACT)
             }
 
-            tvMul.setOnClickListener {
+            btMul.setOnClickListener {
                 evaluateExpression(Constants.Expression.MULTIPLE)
             }
 
-            tvDivide.setOnClickListener {
+            btDivide.setOnClickListener {
                 evaluateExpression(Constants.Expression.DIVIDE)
             }
 
-            tvDot.setOnClickListener {
+            btDot.setOnClickListener {
                 evaluateExpression(Constants.Expression.DOT)
             }
 
-            tvPercent.setOnClickListener {
+            btPercent.setOnClickListener {
                 evaluateExpression(Constants.Expression.PERCENTAGE)
             }
 
@@ -91,20 +91,20 @@ class MainActivity : AppCompatActivity() {
 //                evaluateExpression(Constants.Expression.BRACKETS)
 //            }
 
-            tvClear.setOnClickListener {
+            btClear.setOnClickListener {
                 viewModel.evaluateExpression("", true)
-                tvExpression.text = ""
-                tvResult.text = ""
+                btExpression.text = ""
+                btResult.text = ""
             }
 
-            tvEquals.setOnClickListener {
-                val text = tvExpression.text.toString()
+            btEquals.setOnClickListener {
+                val text = btExpression.text.toString()
                 viewModel.calculateEquals(Number(text))
             }
 
-            tvDel.setOnClickListener {
+            btDel.setOnClickListener {
                 viewModel.deleteLastCharacter()
-                tvResult.text = ""
+                btResult.text = ""
             }
 
         }
@@ -122,13 +122,13 @@ class MainActivity : AppCompatActivity() {
     private fun observableLiveData() {
         viewModel.numberLiveData.observe(this) { number ->
             with(binding) {
-                tvResult.text = ""
-                tvExpression.text = number
+                btResult.text = ""
+                btExpression.text = number
             }
         }
 
         viewModel.resultLiveData.observe(this) { result ->
-            binding.tvResult.text = result.result
+            binding.btResult.text = result.result
         }
     }
 
