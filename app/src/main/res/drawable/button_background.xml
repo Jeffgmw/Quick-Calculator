@@ -4,9 +4,6 @@
         android:startColor="@color/light_gray"
         android:endColor="@color/light_gray"
         android:angle="45"/> <!-- Adjusted angle for a smoother gradient -->
-<!--    <stroke-->
-<!--        android:width="2dp"-->
-<!--        android:color="@color/actionButton"/> &lt;!&ndash; Optional border for better visibility &ndash;&gt;-->
     <padding
         android:left="10dp"
         android:top="10dp"

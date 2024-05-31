@@ -1,12 +1,10 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:radius="5dp" />
+    <corners android:radius="12dp" />
     <gradient
         android:startColor="@color/white"
-        android:endColor="@color/light_gray"
+        android:endColor="@color/white"
         android:angle="45" />
-    <stroke
-        android:width="1dp"
-        android:color="@color/actionButton" />
+
     <padding
         android:left="10dp"
         android:top="10dp"

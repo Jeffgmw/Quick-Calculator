@@ -5,38 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/black"
+    android:background="@android:color/white"
     tools:context=".view.MainActivity">
 
-    <TextView
-        android:id="@+id/tvExpression"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="300dp"
         android:background="@drawable/textview_background"
-        android:textColor="@color/black"
-        android:gravity="end|center_vertical"
-        android:ellipsize="start"
-        android:padding="10dp"
+        android:orientation="vertical"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="0dp"
-        android:textSize="35sp"
-        android:textStyle="bold"/>
+        android:layout_marginBottom="0dp">
 
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/textview_background"
-        android:textColor="@color/black"
-        android:gravity="end|center_vertical"
-        android:ellipsize="end"
-        android:padding="10dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:textSize="30sp"
-        android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tvExpression"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textColor="@color/black"
+            android:gravity="end|center_vertical"
+            android:ellipsize="start"
+            android:padding="10dp"
+            android:textSize="35sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:ellipsize="end"
+            android:gravity="end|center_vertical"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
