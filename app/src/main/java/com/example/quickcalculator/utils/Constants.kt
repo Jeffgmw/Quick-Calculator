@@ -2,7 +2,6 @@ package com.example.quickcalculator.utils
 
 class Constants {
     object Value {
-
         const val ONE = "1"
         const val TWO = "2"
         const val THREE = "3"
@@ -16,7 +15,6 @@ class Constants {
     }
 
     object Expression {
-
         const val ADD = "+"
         const val SUBSTRACT = "-"
         const val MULTIPLE = "*"

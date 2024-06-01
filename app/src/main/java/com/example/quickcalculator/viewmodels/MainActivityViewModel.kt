@@ -3,6 +3,7 @@ package com.example.quickcalculator.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.quickcalculator.model.HistoryItem
 import com.example.quickcalculator.model.Number
 import net.objecthunter.exp4j.ExpressionBuilder
 import java.util.regex.Pattern
@@ -18,6 +19,13 @@ class MainActivityViewModel : ViewModel() {
     private var appendedString: String = ""
 
     private var isPendingClosingParenthesis = false
+
+
+    private val _historyLiveData = MutableLiveData<List<HistoryItem>>()
+    val historyLiveData: LiveData<List<HistoryItem>> get() = _historyLiveData
+
+    private val historyList = mutableListOf<HistoryItem>()
+
 
     fun evaluateExpression(string: String, clear: Boolean) {
         if (clear) {
@@ -52,18 +60,33 @@ class MainActivityViewModel : ViewModel() {
         }
     }
 
+
     fun calculateEquals(number: Number) {
         val expression = preprocessExpression(number.result)
         val exp = ExpressionBuilder(expression).build()
         val result = exp.evaluate()
         val longResult = result.toLong()
+        val resultString = if (result == longResult.toDouble()) longResult.toString() else result.toString()
 
-        mutableResult.value = if (result == longResult.toDouble()) {
-            Number(longResult.toString())
-        } else {
-            Number(result.toString())
-        }
+        mutableResult.value = Number(resultString)
+        addHistoryItem(number.result, resultString)
     }
+
+
+
+
+
+    fun addHistoryItem(expression: String, result: String) {
+        historyList.add(HistoryItem(expression, result))
+        _historyLiveData.value = historyList.toList()
+    }
+
+    fun clearHistory() {
+        historyList.clear()
+        _historyLiveData.value = historyList.toList()
+    }
+
+
 
     // Sake of percentage calculation
 //    private fun preprocessExpression(expression: String): String {
