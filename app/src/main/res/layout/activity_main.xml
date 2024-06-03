@@ -73,11 +73,6 @@
                     android:text="CLEAR"/>
 
                 <TextView
-                    android:id="@+id/btHistory"
-                    style="@style/ActionButtonStyle2"
-                    android:text="HIST"/>
-
-                <TextView
                     android:id="@+id/btBrackets"
                     style="@style/ActionButtonStyle"
                     android:text="()"/>
@@ -209,15 +204,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-    <!-- RecyclerView for History -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewHistory"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

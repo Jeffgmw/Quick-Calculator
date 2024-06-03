@@ -1,20 +1,17 @@
 package com.example.quickcalculator.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.quickcalculator.utils.Constants
-import com.example.quickcalculator.model.Number
 import com.example.quickcalculator.databinding.ActivityMainBinding
+import com.example.quickcalculator.model.Number
+import com.example.quickcalculator.utils.Constants
 import com.example.quickcalculator.viewmodels.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainActivityViewModel
-    private lateinit var historyAdapter: HistoryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,19 +19,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initializeViewModel()
-        setupRecyclerView()
         observableLiveData()
 
         with(binding){
-
-            btHistory.setOnClickListener {
-                if (recyclerViewHistory.visibility == View.VISIBLE) {
-                    recyclerViewHistory.visibility = View.GONE
-                } else {
-                    recyclerViewHistory.visibility = View.VISIBLE
-                    recyclerViewHistory.scrollToPosition(0)
-                }
-            }
 
             btOne.setOnClickListener {
                 evaluateExpression(Constants.Value.ONE)
@@ -101,17 +88,15 @@ class MainActivity : AppCompatActivity() {
                 evaluateExpression(Constants.Expression.PERCENTAGE)
             }
 
-//            tvBrackets.setOnClickListener {
-//                evaluateExpression(Constants.Expression.BRACKETS)
-//            }
+            btBrackets.setOnClickListener {
+                evaluateExpression(Constants.Expression.BRACKETS)
+            }
 
             btClear.setOnClickListener {
                 viewModel.evaluateExpression("", true)
                 btExpression.text = ""
                 btResult.text = ""
-                viewModel.clearHistory()  // Clear history when clear button is pressed
             }
-            btHistory.setOnClickListener {  }
 
             btEquals.setOnClickListener {
                 val text = btExpression.text.toString()
@@ -122,7 +107,6 @@ class MainActivity : AppCompatActivity() {
                 viewModel.deleteLastCharacter()
                 btResult.text = ""
             }
-
         }
     }
 
@@ -131,11 +115,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.evaluateExpression(string, false)
     }
 
-    private fun setupRecyclerView() {
-        historyAdapter = HistoryAdapter(emptyList())
-        binding.recyclerViewHistory.layoutManager = LinearLayoutManager(this)
-        binding.recyclerViewHistory.adapter = historyAdapter
-    }
 
     private fun initializeViewModel() {
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
@@ -153,10 +132,6 @@ class MainActivity : AppCompatActivity() {
             binding.btResult.text = result.result
         }
 
-        viewModel.historyLiveData.observe(this) { historyList ->
-            historyAdapter = HistoryAdapter(historyList)
-            binding.recyclerViewHistory.adapter = historyAdapter
-        }
     }
 
 
