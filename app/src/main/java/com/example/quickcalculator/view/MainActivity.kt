@@ -115,7 +115,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.evaluateExpression(string, false)
     }
 
-
     private fun initializeViewModel() {
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
     }
@@ -131,8 +130,5 @@ class MainActivity : AppCompatActivity() {
         viewModel.resultLiveData.observe(this) { result ->
             binding.btResult.text = result.result
         }
-
     }
-
-
 }

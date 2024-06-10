@@ -13,7 +13,6 @@ class Constants {
         const val NINE = "9"
         const val ZERO = "0"
     }
-
     object Expression {
         const val ADD = "+"
         const val SUBSTRACT = "-"
@@ -23,5 +22,4 @@ class Constants {
         const val PERCENTAGE = "%"
         const val BRACKETS = "()"
     }
-
 }

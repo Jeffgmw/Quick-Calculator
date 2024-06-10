@@ -19,7 +19,6 @@ class MainActivityViewModel : ViewModel() {
 
     private var isPendingClosingParenthesis = false
 
-
     fun evaluateExpression(string: String, clear: Boolean) {
         if (clear) {
             appendedString = ""
@@ -88,5 +87,4 @@ class MainActivityViewModel : ViewModel() {
 
         return buffer.toString()
     }
-
 }

@@ -7,8 +7,6 @@
     android:background="@android:color/white"
     tools:context=".view.MainActivity">
 
-    <!-- Main calculator layout -->
-
     <!-- The parent layout for calculator screen and buttons -->
     <LinearLayout
         android:id="@+id/calculatorLayout"
